@@ -1,0 +1,18 @@
+﻿@model BarterApp.Models.Item
+
+@{
+    ViewData["Title"] = "Item Details";
+}
+
+<h2>Item Details</h2>
+
+<div class="card p-3">
+    <h4>@Model.Title</h4>
+    <p><strong>Description:</strong> @Model.Description</p>
+    <p><strong>Created:</strong> @Model.CreatedAt.ToLocalTime().ToString("f")</p>
+    <p><strong>Owner:</strong> @Model.Owner?.UserName</p>
+    <p><strong>Available:</strong> @(Model.IsAvailable ? "Yes" : "No")</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mt-2">Edit</a>
+<a asp-action="Index" class="btn btn-secondary mt-2">Back to List</a>
